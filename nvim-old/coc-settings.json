@@ -1,0 +1,7 @@
+{
+    "Lua.telemetry.enable": false,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "Lua.diagnostics.globals": ["vim"],
+}
