@@ -203,7 +203,12 @@ local plugins = {
       require("core.utils").load_mappings "whichkey"
     end,
   },
+
+  -- copilot
+  ["github/copilot.vim"] = {}
 }
+
+
 
 -- Load all plugins
 local present, packer = pcall(require, "packer")
