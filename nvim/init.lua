@@ -1,3 +1,9 @@
+-- check if the vim instance is vscode
+if vim.g.vscode then
+  -- load base nvim just for the movements
+else
+  -- load the full config for nvim
+  
 vim.defer_fn(function()
   pcall(require, "impatient")
 end, 0)
@@ -32,3 +38,5 @@ end
 pcall(require, "custom")
 
 require("core.utils").load_mappings()
+
+end
