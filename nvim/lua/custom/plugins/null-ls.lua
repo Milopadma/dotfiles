@@ -12,12 +12,12 @@ local sources = {
   b.formatting.prettier,
 
   -- Lua
-  b.formatting.stylua,
+ b.formatting.stylua,
 
   -- -- java
   b.formatting.clang_format,
 
-  -- rust
+ -- rust
   b.formatting.rustfmt,
 
   -- Shell

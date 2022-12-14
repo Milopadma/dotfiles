@@ -1,4 +1,5 @@
 local overrides = require "custom.plugins.overrides"
+
 return {
   -- copilot
   ["github/copilot.vim"] = {},
@@ -8,10 +9,10 @@ return {
 
   -- lsp-zero
   ["VonHeikemen/lsp-zero.nvim"] = {
-      after = "nvim-lspconfig",
-      config = function()
-         require "custom.plugins.lsp-zero"
-      end,
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.lsp-zero"
+    end,
   },
 
   -- Override plugin definition options
@@ -50,5 +51,4 @@ return {
       require "custom.plugins.null-ls"
     end,
   },
- }
 }
