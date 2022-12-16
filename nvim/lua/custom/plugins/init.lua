@@ -37,12 +37,16 @@ return {
     override_options = overrides.nvimtree,
   },
 
-  -- Install a plugin
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup()
     end,
+  },
+
+  -- vim-surround
+  ["tpope/vim-surround"] = {
+    event = "BufRead",
   },
 
   -- null-ls for lsp based formatting
