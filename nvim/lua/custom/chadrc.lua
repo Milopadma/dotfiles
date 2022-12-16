@@ -12,6 +12,8 @@ M.ui = {
   hl_add = highlights.add,
 }
 
+M.mappings = require "custom.mappings"
+
 M.plugins = require "custom.plugins"
 
 return M

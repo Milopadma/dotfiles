@@ -10,6 +10,7 @@ return {
   -- lsp-zero
   ["VonHeikemen/lsp-zero.nvim"] = {
     after = "nvim-lspconfig",
+    requires = "williamboman/mason-lspconfig.nvim",
     config = function()
       require "custom.plugins.lsp-zero"
     end,
