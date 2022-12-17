@@ -22,4 +22,12 @@ M.lspzero = {
   },
 }
 
+-- undotree stuff
+M.undotree = {
+  n = {
+    -- toggle undotree
+    ["F5"] = { "<cmd> UndotreeToggle <CR>", "Toggle undotree" },
+  },
+}
+
 return M
