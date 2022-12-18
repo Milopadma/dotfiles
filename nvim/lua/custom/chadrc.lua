@@ -1,3 +1,9 @@
+
+-- vim diagnostic config
+vim.diagnostic.config {
+  virtual_text = true,
+}
+
 local M = {}
 
 -- Path to overriding theme and highlights files

@@ -1,5 +1,6 @@
 local M = {}
 
+-- lsp zero config
 M.lspzero = {
   n = {
     -- for formattingg
@@ -26,7 +27,7 @@ M.lspzero = {
 M.undotree = {
   n = {
     -- toggle undotree
-    ["F5"] = { "<cmd> UndotreeToggle <CR>", "Toggle undotree" },
+    ["<leader>tu"] = { "<cmd> UndotreeToggle <CR>", "Toggle undotree" },
   },
 }
 
