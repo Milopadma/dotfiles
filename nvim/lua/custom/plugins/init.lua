@@ -4,14 +4,14 @@ return {
   -- copilot
   ["github/copilot.vim"] = {
     -- to accept suggestion using SHIFT-TAB
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup {
-        keymap = {
-          accept = "<S-Tab>",
-        },
-      }
-    end,
+    -- event = "InsertEnter",
+    -- config = function()
+    --   require("copilot").setup {
+    --     keymap = {
+    --       accept = "<S-Tab>",
+    --     },
+    --   }
+    -- end,
   },
 
   -- leap
