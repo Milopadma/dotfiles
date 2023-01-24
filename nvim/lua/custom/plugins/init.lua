@@ -2,16 +2,33 @@ local overrides = require "custom.plugins.overrides"
 
 return {
   -- copilot
-  ["github/copilot.vim"] = {
-    -- to accept suggestion using SHIFT-TAB
-    -- event = "InsertEnter",
-    -- config = function()
-    --   require("copilot").setup {
-    --     keymap = {
-    --       accept = "<S-Tab>",
-    --     },
-    --   }
-    -- end,
+  -- ["github/copilot.vim"] = {
+  --   -- to accept suggestion using SHIFT-TAB
+  --   -- event = "InsertEnter",
+  --   -- config = function()
+  --   --   require("copilot").setup {
+  --   --     keymap = {
+  --   --       accept = "<S-Tab>",
+  --   --     },
+  --   --   }
+  --   -- end,
+  -- },
+
+  -- copilot lua
+  ["zbirenbaum/copilot.lua"] = {
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end
+  },
+
+  -- copilot as cmp lmao wtf
+  ["zbirenbaum/copilot-cmp"] = {
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
   },
 
   -- leap
@@ -21,6 +38,9 @@ return {
       require("leap").add_default_mappings()
     end,
   },
+
+  -- dot repeat
+  ["tpope/vim-repeat"] = {},
 
   -- tabout
   ["abecodes/tabout.nvim"] = {
