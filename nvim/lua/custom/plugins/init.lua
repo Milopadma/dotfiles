@@ -2,7 +2,17 @@ local overrides = require "custom.plugins.overrides"
 
 return {
   -- copilot
-  ["github/copilot.vim"] = {},
+  ["github/copilot.vim"] = {
+    -- to accept suggestion using SHIFT-TAB
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        keymap = {
+          accept = "<S-Tab>",
+        },
+      }
+    end,
+  },
 
   -- undotree
   ["mbbill/undotree"] = {},
@@ -46,7 +56,7 @@ return {
 
   -- vim-surround
   ["tpope/vim-surround"] = {
-    event = "BufRead",
+  event = "BufRead",
   },
 
   -- null-ls for lsp based formatting
