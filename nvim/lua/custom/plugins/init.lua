@@ -22,7 +22,7 @@ return {
       require("copilot").setup {}
     end
   },
-
+  
   -- copilot as cmp lmao wtf
   ["zbirenbaum/copilot-cmp"] = {
     after = { "copilot.lua" },
