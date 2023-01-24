@@ -1,5 +1,15 @@
 local M = {}
-
+-- general mappings
+M.general = {
+  n = {
+    ["<C-d>"] = {
+      "<C-d>zz"
+    };
+    ["<C-u>"] = {
+      "<C-d>zz"
+    }
+  }
+}
 -- lsp zero config
 M.lspzero = {
   n = {
