@@ -6,7 +6,7 @@ M.general = {
       "<C-d>zz"
     };
     ["<C-u>"] = {
-      "<C-d>zz"
+      "<C-u>zz"
     }
   }
 }
