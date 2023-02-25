@@ -104,7 +104,9 @@ alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="cd ~/.config/nvim && nvim ."
 alias yabaiconfig="nvim ~/.yabairc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias c="Code"
+# alias c will open Code in the current directory and hide the terminal using Yabai
+# alias c="code . && yabai -m window --minimize"
+alias c="code ."
 alias glall="find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;"
 
   export NVM_DIR="$HOME/.nvm"
@@ -121,4 +123,4 @@ export PATH="$PNPM_HOME:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /Users/mylo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/mylo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/mylo/.config/broot/launcher/bash/br
