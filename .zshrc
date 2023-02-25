@@ -123,3 +123,5 @@ export PATH="$PNPM_HOME:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /Users/mylo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /Users/mylo/.config/broot/launcher/bash/br
