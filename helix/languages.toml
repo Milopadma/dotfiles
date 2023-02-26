@@ -3,3 +3,11 @@ name = "rust"
 
 [language.config]
 checkOnSave = { command = "clippy" }
+
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "^astro$"
+file-types = ["astro"]
+comment-token = "//"
+language-server = {command = "astro-ls", args = ["--stdio"] }
