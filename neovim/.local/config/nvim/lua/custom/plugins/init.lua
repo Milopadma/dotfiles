@@ -15,25 +15,20 @@ return {
   -- },
 
   -- copilot lua
-  -- ["zbirenbaum/copilot.lua"] = {
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup {}
-  --   end
-  -- },
+  ["zbirenbaum/copilot.lua"] = {
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end
+  },
   
-  -- -- copilot as cmp lmao wtf
-  -- ["zbirenbaum/copilot-cmp"] = {
-  --   after = { "copilot.lua" },
-  --   config = function()
-  --     require("copilot_cmp").setup()
-  --   end
-  -- },
-  --
-  -- using codeium
-  ["Exafunction/codeium.vim"] = {
-    
+  -- copilot as cmp lmao wtf
+  ["zbirenbaum/copilot-cmp"] = {
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
   },
 
   -- leap
