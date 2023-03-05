@@ -50,5 +50,5 @@ yabai -m config \
 
 yabai -m rule --add \
 	app="^Spotify$" space=2 \
-
+	
 echo "yabai configuration loaded.."

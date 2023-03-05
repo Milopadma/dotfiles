@@ -3,7 +3,26 @@ theme = "base16_transparent"
 [editor]
 color-modes = true
 
-# [keys.normal]
+[keys.insert]
+# disable arrow keys
+# down = "nothing"
+# uo = "nothing"
+# left = "nothing"
+# right = "nothing"
+
+# move while in insert mode
+C-l = "move_char_right"
+C-h = "move_char_left"
+# C-j = "move_char_down"
+# C-k = "move_char_up"
+
+# move out of parentheses
+tab = ["move_char_right"]
+
+[keys.normal]
+# # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
 # Quick iteration on config changes
 # C-o = ":config-open"
 # C-r = ":config-reload"
@@ -128,9 +147,6 @@ color-modes = true
 # Y = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "goto_line_start", "collapse_selection", "normal_mode"]
 # p = "replace_selections_with_clipboard" # No life without this
 # P = "paste_clipboard_before"
-
-# # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
-# esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
 
 
