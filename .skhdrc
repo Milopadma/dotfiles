@@ -192,26 +192,26 @@ cmd - 5 : open /Applications/Safari.app
 
 # focus window
 alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus north
-alt - k : yabai -m window --focus south
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
 # swap managed window
-shift + alt - h : yabai -m window --swap north
-shift + alt - j : yabai -m window --swap east
-shift + alt - k : yabai -m window --swap south
-shift + alt - l : yabai -m window --swap west
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
 
 # move managed window
 # shift + cmd - h : yabai -m window --warp east
 
-# toggle between all windows fullscreen and balanced layout
+# toggle between all windows fullscreen and balanced layout in the current space
 shift + alt - 0 : \
-    if [ "$(yabai -m query --windows | jq -r 'map(."has-fullscreen-zoom") | all')" = "true" ]; then \
-        yabai -m query --windows | jq -r '.[] | .id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen; \
+    if [ "$(yabai -m query --windows --space | jq -r 'map(."has-fullscreen-zoom") | all')" = "true" ]; then \
+        yabai -m query --windows --space | jq -r '.[] | .id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen; \
         yabai -m space --balance; \
     else \
-        yabai -m query --windows | jq -r '.[] | .id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen; \
+        yabai -m query --windows --space | jq -r '.[] | .id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen; \
     fi
 
 # make floating window fill screen
@@ -227,12 +227,13 @@ shift + alt - 0 : \
 #                   yabai -m space --focus "${index}"
 
 # fast focus desktop
-# cmd + alt - x : yabai -m space --focus recent
-# cmd + alt - 1 : yabai -m space --focus 1
+cmd + alt - h : yabai -m space --focus prev
+cmd + alt - l : yabai -m space --focus next
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
-# shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+# shift + cmd + ctrl - h : yabai -m window --space next; yabai -m space --focus prev
+# shift + cmd + ctrl - l : yabai -m window --space prev; yabai -m space --focus next
 
 # focus monitor
 # ctrl + alt - z  : yabai -m display --focus prev
@@ -268,8 +269,12 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
-# float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+# float / unfloat window and center on screen (full screen)
+alt - t : yabai -m window --toggle float && \
+          yabai -m window --grid 1:1:0:0:1:1
 
 # toggle sticky(+float), picture-in-picture
 alt - p : yabai -m window --toggle sticky --toggle pip
+
+# Prevent accidental app quits with cmd+Q
+cmd - q : yabai -m window --close || osascript -e 'tell application "System Events" to perform action "AXPress" of (first button whose subrole is "AXCloseButton") of (first window whose subrole is "AXStandardWindow") of (first process whose frontmost is true)'

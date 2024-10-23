@@ -70,10 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,27 +97,56 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="nvim ~/.zshrc"
-alias nvimconfig="cd ~/.config/nvim && nvim ."
-alias yabaiconfig="nvim ~/.yabairc"
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias c will open Code in the current directory and hide the terminal using Yabai
-# alias c="code . && yabai -m window --minimize"
-alias c="code ."
-alias glall="find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;"
 
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# bun completions
+[ -s "/Users/mylo/.bun/_bun" ] && source "/Users/mylo/.bun/_bun"
+
+# fnm
+export PATH="/Users/mylo/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
+export PATH="/Users/mylo/.bun/bin:$PATH"
+export PATH="/Users/mylo/Code/flutter-fun/flutter:$PATH"
+export PATH="/Users/mylo/go/bin:$PATH"
+PATH=~/.console-ninja/.bin:$PATH
+alias c="open -a 'Cursor'"
+alias nv="nvim"
+alias b="bun"
+
+
+# Herd injected NVM configuration
+export NVM_DIR="/Users/mylo/Library/Application Support/Herd/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/mylo/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/mylo/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/mylo/Library/Application Support/Herd/config/php/81/"
+
+source /Users/mylo/.config/broot/launcher/bash/br
+export EDITOR=cursor
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+export PATH="/Users/mylo/.rbenv/shims:$PATH"
+export GOROOT=$(go env GOROOT)
+
+export PATH=$PATH:/Users/mylo/Code/pocketic
 
 # pnpm
 export PNPM_HOME="/Users/mylo/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm endsource /Users/mylo/Code/rust-course/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /Users/mylo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/mylo/.config/broot/launcher/bash/br
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
